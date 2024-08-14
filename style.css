@@ -1,18 +1,28 @@
+/* Base styling for the container */
+.container {
+    width: 100%;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
 /* Base styling for tables */
 table.custom-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    border: 1px solid #bbb;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
 }
 
 /* Styling for the table headers */
 table.custom-table th {
-    background-color: #f5f5f5; /* Light gray background */
+    background-color: #eaeaea; /* Light gray background */
     color: #333; /* Dark text color */
     font-weight: bold;
-    text-align: left;
+    text-align: center;
     padding: 8px;
-    border: 1px solid #ddd; /* Light gray border */
+    border: 1px solid #bbb; /* Border matching the outer table */
 }
 
 /* Styling for table cells */
@@ -20,35 +30,81 @@ table.custom-table td {
     background-color: #fff; /* White background */
     color: #333; /* Dark text color */
     padding: 8px;
-    border: 1px solid #ddd; /* Light gray border */
+    border: 1px solid #bbb; /* Light gray border */
+    text-align: left;
+    vertical-align: middle;
 }
 
-/* Styling for table rows */
-table.custom-table tr {
-    border-bottom: 1px solid #ddd; /* Light gray border */
+/* First column (usually icons) centered */
+table.custom-table td:first-child {
+    text-align: center;
+    width: 50px; /* Adjust width based on the icons */
 }
 
-/* Styling for the main container (optional, based on the webpage structure) */
-.container {
-    background-color: #f0f8ff; /* Very light blue background */
-    padding: 20px;
-    border-radius: 8px;
+/* Last column (usually games list) centered */
+table.custom-table td:last-child {
+    text-align: center;
+    width: 100px; /* Adjust width based on the content */
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 600px) {
-    table.custom-table, table.custom-table tr, table.custom-table th, table.custom-table td {
+/* Link styling inside the table */
+table.custom-table a {
+    color: #007ACC; /* Blue links */
+    text-decoration: none;
+}
+
+table.custom-table a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Specific styling for certain elements, such as hidden items */
+.hidden-item {
+    font-style: italic;
+    color: #555;
+}
+
+/* Styling for multiple icons or inline elements in a cell */
+.inline-icons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Small padding for specific elements within the cells */
+.table-padding-small {
+    padding: 4px 8px;
+}
+
+/* Styling for responsive tables */
+@media screen and (max-width: 768px) {
+    table.custom-table, table.custom-table th, table.custom-table td {
         display: block;
         width: 100%;
     }
 
-    table.custom-table th, table.custom-table td {
+    table.custom-table th {
         text-align: right;
         padding-left: 50%;
         position: relative;
     }
 
-    table.custom-table th::before, table.custom-table td::before {
+    table.custom-table th::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    table.custom-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    table.custom-table td::before {
         content: attr(data-label);
         position: absolute;
         left: 0;
