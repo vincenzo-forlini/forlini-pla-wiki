@@ -1,0 +1,60 @@
+/* Base styling for tables */
+table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Styling for the table headers */
+table.custom-table th {
+    background-color: #f5f5f5; /* Light gray background */
+    color: #333; /* Dark text color */
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd; /* Light gray border */
+}
+
+/* Styling for table cells */
+table.custom-table td {
+    background-color: #fff; /* White background */
+    color: #333; /* Dark text color */
+    padding: 8px;
+    border: 1px solid #ddd; /* Light gray border */
+}
+
+/* Styling for table rows */
+table.custom-table tr {
+    border-bottom: 1px solid #ddd; /* Light gray border */
+}
+
+/* Styling for the main container (optional, based on the webpage structure) */
+.container {
+    background-color: #f0f8ff; /* Very light blue background */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+    table.custom-table, table.custom-table tr, table.custom-table th, table.custom-table td {
+        display: block;
+        width: 100%;
+    }
+
+    table.custom-table th, table.custom-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    table.custom-table th::before, table.custom-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
